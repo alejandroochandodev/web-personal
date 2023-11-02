@@ -1,0 +1,1248 @@
+
+/* Iniciamos el código de la hoja de estilos css que va a tener anexado el documento html principal. */
+/* Esta hoja tiene como objetivo principalmente añadir los estilos y la apariencia requerida a la estructura maquetada en html. */
+
+/* Se inicia la hoja de estilos con un reset, es decir, con el reseteo de efectos y propiedades que vienen por defecto. */
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    vertical-align: baseline;
+    /* Esto es para ver las cajas en todo momento, por tanto estará comentado, y cuando sea necesario, se descomentará. */
+    /* outline: 2px red ridge; */
+}
+
+*::before , *::after {
+    display: block;
+}
+
+/* Se evitan posible confusiones con las imagenes. */
+img, picture, video, iframe, figure {
+    max-width: 100%;
+    width: 100%;
+    display: block;
+}
+
+/* Se resetean los enlaces. */
+a {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    font-size: inherit;
+}
+
+/* Los enalces de lospárrafos se quedan como están. */
+p a {
+    display: inline;
+}
+
+/* Se quitan los puntos de los <li>. */
+li {
+    list-style-type: none;
+}
+
+/* Se configuran anclas "a cámara lenta". */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Se desactivan los estilos por defecto de las principales etiquetas de texto. */
+h1, h2, h3, h4, h5, h6, p, span, a, strong, blockquote, i, b, u, em {
+    /* font-size: 1em;
+    font-weight: inherit;
+    font-style: inherit;
+    text-decoration: none;
+    color: inherit; */
+}
+
+/* Se evitan problemas con los pseudoelementos de quotes */
+blockquote:before, blockquote:after, q:before, q:after {
+    content: "";
+    content: none;
+}
+
+/* Se configura el texto que se selecciona. */
+::-moz-selection {
+    background-color: var(--negro);
+    color: var(--blanco);
+}
+::selection {
+    background-color: var(--negro);
+    color: var(--blanco);
+}
+
+/* Se nivelan problemas de tipografías y colocación de formularios. */
+form, input, textarea, select, button, label {
+    font-family: inherit;
+    font-size: inherit;
+    -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+            hyphens: auto;
+    background-color: transparent;
+    color: inherit;
+    display: block;
+}
+
+/* Se resetean las tablas. */
+table, tr, td {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* Se evitan problemas con los SVG */
+svg {
+    width: 100%;
+    display: block;
+    fill: currentColor;
+}
+
+/* Se personaliza la scrollbar. */
+/* El ancho: */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* El canal por el que pasa: */
+::-webkit-scrollbar-track {
+background: rgba(12, 16, 19, 0.99)6;
+box-shadow: inset 2px 2px 5px rgb(0, 0, 0);
+border-radius: 20px;
+}
+
+/* El scrollbar: */
+::-webkit-scrollbar-thumb {
+background: rgba(61, 121, 167, 0.99);
+border-radius: 20px;
+}
+
+/* Cuando pasas el cursor por encima del scrollbar: */
+::-webkit-scrollbar-thumb:hover {
+background: rgba(40, 79, 109, 0.99);
+}
+
+/* Especificaciones generales. */
+body {
+    min-height: 100vh;
+    max-width: 1430px;
+    margin: auto;
+    font-size: 100%;
+    color: white;
+    background-color: rgba(12, 16, 19, 0.99);
+    font-family: 'Poppins', sans-serif;
+}
+
+/* La sección que se utiliza para centrar el contenido. */
+.wrapper {
+    margin: auto;
+    width: 90%;
+}
+
+/* Aquí empiezan los estilos esepcifíficos para cada bloque. */
+/* Empieza el header. */
+.Header {
+    margin: 0 1.25rem 0;
+    padding: .625rem 0;
+    opacity: 0;
+    transform: translateY(-30%);
+    transition: all 3s ease;
+}
+
+.Header-wrapper {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Ocultado por defecto porque solo se utiliza en los modos tableta y móvil. */
+.Header-hamburguesa {
+    display: none;
+}
+
+.Hamburguesa-svg {
+    width: 2.1875rem;
+}
+
+.Header-img {
+    width: 7.5rem;
+}
+
+.Header-ul {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 3.125rem;
+}
+
+.Header-li {
+    transition: all 0.8s ease;
+}
+
+.Header-li:hover {
+    transform: scale(1.1);
+}
+
+.Header-li:active {
+    transform: scale(0.8);
+}
+
+.Header-contacto {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5625rem;
+}
+
+.Header-svg {
+    width: 1.25rem;
+}
+
+/* Menú desplegable del modo tableta. */
+/* Inicia invisible, para rotar y acabar desplegado. */
+/* No puede tener un display none, porque si no no podría haber transición. */
+/* Al estar invisible, y no oculto, hay que agregar un pointer events none para que se puedan seleccionar los elementos de debajo del menú. */
+.Tablet {
+    width: 30%;
+    margin-left: 10%;
+    opacity: 0;
+    height: 0;
+    transform: rotate(290deg);
+    transition: all 1s ease;
+    transform-origin: left;
+    pointer-events: none;
+}
+
+.Tablet-ul {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: flex-start;
+    margin-left: 20%;
+    transition: all 1s ease;
+}
+
+/* Menú desplegable del modo móvil. */
+/* Inicia oculto, para rotar y acabar desplegado. */
+/* No puede tener un display none, porque si no no podría haber transición. */
+/* Al estar invisible, y no oculto, hay que agregar un pointer events none para que se puedan seleccionar los elementos de debajo del menú. */
+.Movil {
+    font-size: 80%;
+    width: 30%;
+    margin-left: 10%;
+    opacity: 0;
+    height: 0;
+    transform: rotate(290deg);
+    transition: all 1s ease;
+    transform-origin: left;
+    pointer-events: none;
+}
+
+.Movil-contenedor {
+    margin-left: 20%;
+    transition: all 1s ease;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2.5rem;    
+}
+
+.Movil-ul {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2.5rem;
+}
+
+.Movil-contacto {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+/* Modo responsive del header. */
+@media (max-width: 950px) {
+    .Header-hamburguesa {
+        display: block;
+        transition: all 1s ease;
+    }
+    .Pc {
+        display: none;
+    }
+    .Movil {
+        display: none;
+    }
+}
+
+@media (max-width: 650px) {
+    .Tablet {
+        display: none;
+    }
+    .Movil {
+        display: block;
+    }
+    .Header-contacto {
+        display: none;
+    }
+    .Movil-svg {
+        width: 1rem;
+    }
+}
+
+@media (max-width: 420px) {
+    .Hamburguesa-svg {
+        width: 1.875rem;
+    }
+    .Header-img {
+        width: 6.25rem;
+    }
+}
+
+/* Empieza el main. */
+.Main {
+    overflow: hidden;
+}
+
+/* Primera sección, la portada. */
+.Portada {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.Portada-fondo {
+    margin: auto;
+    position: absolute;
+    top: 4.375rem;
+    /* Para centrar la imagen se tiene que restar al 50% la mitad del ancho de la propia imagen. */
+    right: calc(50% - 15.625rem);
+    animation: fondo 3s 4s linear infinite both;
+    opacity: 0;
+    transition: all 9s ease;
+}
+
+.Portada-img {
+    width: 31.25rem;
+}
+
+.Portada-giratoria {
+    width: 95%;
+    margin: auto;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    top: 16.5625rem;
+    right: 0;
+    left: 0;
+}
+
+.Portada-etiqueta {
+    width: 100%;
+    font-family: 'Alegreya', serif;
+    font-size: 4.375rem;
+    font-weight: 700;
+}
+
+.izquierda {
+    padding-left: 23.75rem;
+    animation: izquierda 2s ease 3s both;
+}
+
+.derecha {
+    text-align: right;
+    padding-right: 23.75rem;
+    animation: derecha 2s ease 3s both;
+}
+
+.Portada-contenedor {
+    width: 100%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3 , 1fr);
+    text-align: center;
+    position: absolute;
+    top: 13.4375rem;
+    right: 0;
+}
+
+.Portada-centro {
+    margin: auto;
+}
+
+.Portada-nombre {
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 3.4375rem;
+    font-weight: 700;
+    animation: tecleo 1.8s steps(16) 0.5s normal both;
+}
+
+.Portada-apellido {
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 3.625rem;
+    font-weight: 700;
+    animation: tecleo 1.5s steps(13) 2s normal both;
+}
+
+.Portada-profesion {
+    font-size: 1.25rem;
+    font-weight: 500;
+    animation: fadeUp 1.5s ease 3.5s both;
+}
+
+/* Las animaciones relativas a la portada. */
+@keyframes tecleo {
+    from {
+        width: 0;
+    }
+    to {
+        width: 99%;
+    }
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes izquierda {
+    from {
+        opacity: 0;
+        transform: translateX(-50%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes derecha {
+    from {
+        opacity: 0;
+        transform: translateX(50%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Efecto de latido de la imagen. */
+@keyframes fondo {
+	0% {
+        transform: scale(0.95);
+    }
+    20% {
+        transform: scale(0.97);
+    }
+    40% {
+        transform: scale(0.99);
+    }
+    50% {
+        transform: scale(1.01);
+    }
+    60% {
+        transform: scale(0.99);
+    }
+    80% {
+        transform: scale(0.97);
+    }
+    100% {
+        transform: scale(0.95);
+    }
+}
+
+/* Modo responsive de la portada. */
+@media (min-width: 1500px) {
+    .Portada {
+        height: 50rem;
+    }
+}
+
+@media (max-width: 1370px) {
+    .izquierda {
+        padding-left: 17.5rem;
+    }
+    .derecha {
+        padding-right: 17.5rem;
+    }
+}
+
+@media (max-width: 1225px) {
+    .izquierda {
+        padding-left: 13.75rem;
+    }
+    .derecha {
+        padding-right: 13.75rem;
+    }
+    .Portada-fondo {
+        top: 4.0625rem;
+    }
+    .Portada-etiqueta {
+        font-size: 4.0625rem;
+    }
+    .Portada-nombre {
+        font-size: 3.125rem;
+    }
+    .Portada-apellido {
+        font-size: 3.25rem;
+    }
+    .Portada-profesion {
+        font-size: 1.125rem;
+    }
+}
+
+@media (max-width: 1050px) {
+    .izquierda {
+        padding-left: 10.625rem;
+    }
+    .derecha {
+        padding-right: 10.625rem;
+    }
+}
+
+@media (max-width: 935px) {
+    .Portada {
+        height: 40.625rem;
+    }
+    .Portada-giratoria {
+        top: 16.125rem;
+    }
+    .izquierda {
+        padding-left: 7.5rem;
+    }
+    .derecha {
+        padding-right: 7.5rem;
+        
+    }
+    .Portada-fondo {
+        top: 3.5625rem;
+    }
+    .Portada-etiqueta {
+        font-size: 3.75rem;
+    }
+    .Portada-nombre {
+        font-size: 2.8125rem;
+    }
+    .Portada-apellido {
+        font-size: 2.9375rem;
+    }
+    .Portada-profesion {
+        font-size: 1.0625rem;
+    }
+}
+
+@media (max-width: 760px) {
+    .izquierda {
+        padding-left: 4.375rem;
+    }
+    .derecha {
+        padding-right: 4.375rem;
+    }
+    .Portada-fondo {
+        right: calc(50% - 14.0625rem);
+        top: 5rem;
+    }
+    .Portada-img {
+        width: 28.125rem;
+    }
+}
+
+@media (max-width: 650px) {
+    .Portada {
+        height: 37.5rem;
+    }
+    .Portada-giratoria {
+        top: 15.625rem;
+    }
+    .izquierda {
+        padding-left: 2.5rem;
+    }
+    .derecha {
+        padding-right: 2.5rem;
+    }
+    .Portada-etiqueta {
+        font-size: 3.4375rem;
+    }
+    .Portada-fondo {
+        top: 4.5625rem;
+    }
+    .Portada-nombre {
+        font-size: 2.5rem;
+    }
+    .Portada-apellido {
+        font-size: 2.625rem;
+    }
+    .Portada-profesion {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 540px) {
+    .izquierda {
+        padding-left: 1.25rem;
+    }
+    .derecha {
+        padding-right: 1.25rem;
+    }
+    .Portada-fondo {
+        right: calc(50% - 10.9375rem);
+        top: 7.5rem;
+    }
+    .Portada-img {
+        width: 21.875rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .Portada-etiqueta {
+        font-size: 3.125rem;
+    }
+    .Portada-fondo {
+        top: 6.875rem;
+    }
+    .Portada-nombre {
+        font-size: 2.1875rem;
+    }
+    .Portada-apellido {
+        font-size: 2.25rem;
+    }
+    .Portada-profesion {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 450px) {
+    .Portada {
+        height: 34.375rem;
+    }
+    .Portada-giratoria {
+        top: 14.875rem;
+    }
+    .izquierda {
+        padding-left: .9375rem;
+    }
+    .derecha {
+        padding-right: .9375rem;
+    }
+    .Portada-etiqueta {
+        font-size: 2.1875rem;
+    }
+    .Portada-nombre {
+        font-size: 1.5625rem;
+    }
+    .Portada-apellido {
+        font-size: 1.625rem;
+    }
+    .Portada-profesion {
+        font-size: .6875rem;
+    }
+    .Portada-fondo {
+        right: calc(50% - 7.8125rem);
+        top: 8.75rem;
+    }
+    .Portada-img {
+        width: 15.625rem;
+    }
+}
+
+@media (max-width: 325px) {
+    .Portada {
+        height: 31.25rem;
+    }
+    .Portada-giratoria {
+        top: 14.5rem;
+    }
+    .Portada-etiqueta {
+        font-size: 1.875rem;
+    }
+    .Portada-nombre {
+        font-size: 1.25rem;
+    }
+    .Portada-apellido {
+        font-size: 1.3125rem;
+    }
+    .Portada-profesion {
+        font-size: .5625rem;
+    }
+    .Portada-fondo {
+        top: 8.125rem;
+    }
+}
+
+/* Empieza la segunda sección, sobre mí. */
+.Me {
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: all 2s ease;
+}
+
+.Me-h2 {
+    padding-top: 1.875rem;
+    font-size: 2.5rem;
+    margin-bottom: 4.375rem;
+}
+
+.Me-content {
+    display: grid;
+    grid-template-columns: repeat(3 , 1fr);
+    gap: 3.125rem;
+}
+
+.Me-description {
+    border-radius: .625rem;
+    box-shadow:  .3125rem .3125rem .9375rem #000000,
+                -0.0625rem -0.0625rem .3125rem #F8CC59;
+    grid-column: 1 / 3;
+}
+
+.Me-p {
+    padding: 1.875rem;
+    font-size: .875rem;
+    text-align: justify;
+}
+
+.subtitulo {
+    font-size: 1.1875rem;
+    margin-bottom: -2.5rem;
+}
+
+.Me-photo {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1.875rem;
+}
+
+.Me-img {
+    border-radius: .625rem;
+}
+
+.Me-button {
+    padding: .625rem 1.25rem;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    border-radius: .9375rem;
+    box-shadow:  .3125rem .3125rem .9375rem #000000,
+                -0.3125rem -0.3125rem .9375rem #000000;
+    cursor: pointer;
+}
+
+.Me-button:hover {
+    border-radius: .9375rem;
+    box-shadow:  .3125rem .3125rem .9375rem #000000,
+                -0.0625rem -0.0625rem .3125rem #F8CC59;
+}
+
+/* Ocultado por defecto porque solo se utiliza en los modos tableta y móvil. */
+.Me-tablet , .Me-mobile {
+    display: none;
+}
+
+/* Modo responsive de sobre mí. */
+@media (max-width: 1050px) {
+    .Me-content {
+        display: none;
+    }
+    .Me-tablet {
+        display: grid;
+        grid-template-columns: repeat(2 , 1fr);
+        justify-items: center;
+        column-gap: 0;
+    }
+    .Me-photo-tablet {
+        width: 80%;
+    }
+    .Me-title {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+        gap: 1.875rem;
+    }
+    .Me-subtitulo {
+        font-size: 1.1875rem;
+        text-align: center;
+    }
+    .Me-description-tablet {
+        padding: 1.875rem;
+        font-size: .875rem;
+        text-align: justify;
+        border-radius: .625rem;
+        box-shadow:  .3125rem .3125rem .9375rem #000000,
+                    -0.0625rem -0.0625rem .3125rem #F8CC59;
+        grid-column: 1 / 3;
+    }
+}
+
+@media (max-width: 920px) {
+    .Me-button {
+        box-shadow:  .3125rem .3125rem .9375rem #000000,
+                    -0.0625rem -0.0625rem .3125rem #F8CC59;
+    }
+}
+
+@media (max-width: 700px) {
+    .Me-subtitulo , .Me-photo-tablet , .Me-span {
+        font-size: 90%;
+    }
+    .Me-photo-tablet {
+        width: 90%;
+    }
+}
+
+@media (max-width: 650px) {
+    .Me-subtitulo {
+        font-size: 90%;
+    }
+    .Me-span {
+        font-size: 90%;
+    }
+}
+
+@media (max-width: 600px) {
+    .Me-tablet {
+        display: none;
+    }
+    .Me-mobile {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+        gap: 3.75rem;
+    }
+    .Me-photo-mobile {
+        width: 55%;
+    }
+    .Me-description-mobile {
+        padding: 1.875rem;
+        font-size: .875rem;
+        text-align: justify;
+        border-radius: .625rem;
+        box-shadow:  .3125rem .3125rem .9375rem #000000,
+                    -0.0625rem -0.0625rem .3125rem #F8CC59;
+    }
+    .Me-subtitulo-mobile {
+        font-size: 1.1875rem;
+        margin-bottom: 1.25rem;
+    }
+}
+
+@media (max-width: 450px) {
+    .Me-subtitulo-mobile {
+        font-size: 95%;
+    }
+    .Me-p-mobile , .Me-span {
+        font-size: 80%;
+    }
+    .Me-photo-mobile {
+        width: 65%;
+    }
+}
+
+@media (max-width: 350px) {
+    .Me-subtitulo-mobile {
+        font-size: 90%;
+    }
+    .Me-p-mobile , .Me-span {
+        font-size: 70%;
+    }
+    .Me-photo-mobile {
+        width: 75%;
+    }
+}
+
+/* Empieza la tercera sección, servicios. */
+.Services {
+    margin-top: 9.375rem;
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: all 2s ease;
+}
+
+.Services-h2 {
+    padding-top: 1.875rem;
+    font-size: 2.5rem;
+    margin-bottom: 7.5rem;
+}
+
+.Services-contenedor {
+    display: grid;
+    grid-template-columns: repeat(2 , 1fr);
+    justify-items: center;
+    gap: 1.875rem;
+}
+
+.Services-unity {
+    width: 70%;
+    padding: 1.875rem 1.25rem;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1.25rem;
+    box-shadow:  .3125rem .3125rem .9375rem #000000,
+                -0.0625rem -0.0625rem .3125rem #F8CC59;
+}
+
+.Services-h3 {
+    width: 16.875rem;
+    font-size: 1.375rem;
+    text-align: center;
+}
+
+/* Modo responsive de servicios. */
+@media (max-width: 950px) {
+    .Services-unity {
+        width: 90%;
+    }
+}
+
+@media (max-width: 750px) {
+    .Services-h3 {
+        width: 90%;
+        font-size: 90%;
+    }
+}
+
+@media (max-width: 570px) {
+    .Services-contenedor {
+        grid-template-columns: 1fr;
+    }
+    .Services-h3 {
+        width: 90%;
+        font-size: 100%;
+    }
+}
+
+/* Empieza la cuarta y última sección, el portfolio. */
+.Projects {
+    margin-top: 9.375rem;
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: all 2s ease;
+}
+
+.Projects-h2 {
+    padding-top: 1.875rem;
+    font-size: 2.5rem;
+    margin-bottom: 5.3125rem;
+}
+
+.Projects-categories {
+    margin-bottom: 5.3125rem;
+}
+
+.Projects-ul {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 3.75rem;
+}
+
+.Projects-li {
+    font-size: 1.0625rem;
+    cursor: pointer;
+    transition: all 0.8s ease;
+}
+
+.Projects-li:hover {
+    transform: scale(1.2);
+}
+
+.Trabajos {
+    display: grid;
+    grid-template-columns: repeat(3 , 1fr);
+    gap: 3.125rem;
+    padding-bottom: 30px;
+}
+
+.Trabajos-contenedor {
+    position: relative;
+    transition: all 0.8s ease;
+}
+
+.Trabajos-miniatura {
+    border-radius: .9375rem;
+}
+
+.tfm {
+    border: 1px solid white;
+}
+
+.Trabajos-img {
+    border-radius: .9375rem;
+    object-fit: cover;
+}
+
+.Trabajos-overlay {
+    background-image: url("../assets/images/fondoproyectos.gif");
+    border-radius: .9375rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+.Trabajos-span {
+    max-width: 18.75rem;
+    text-align: center;
+    border-radius: .3125rem;
+    background-color: black;
+    padding: .625rem;
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: all 0.5s ease;
+}
+
+.Trabajos-contenedor:hover .Trabajos-overlay {
+    opacity: 1;
+}
+
+.Trabajos-contenedor:hover .Trabajos-span {
+    opacity: 1;
+    transform: translateY(0%);
+}
+
+/* Modo responsive del portfolio. */
+@media (max-width: 1050px) {
+    .Trabajos {
+        grid-template-columns: repeat(2 , 1fr);
+        column-gap: 0;
+    }
+    .Trabajos-contenedor {
+        width: 80%;
+        margin: auto;
+    }
+    .Trabajos-overlay {
+        display: none;
+    }
+}
+
+@media (max-width: 700px) {
+    .Trabajos-contenedor {
+        width: 90%;
+    }
+}
+
+@media (max-width: 550px) {
+    .Trabajos {
+        column-gap: 1.25rem;
+    }
+    .Trabajos-contenedor {
+        width: 100%;
+    }
+    .Projects-li {
+        font-size: .9375rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .Projects-ul {
+        gap: 3.125rem;
+    }
+    .Trabajos {
+        grid-template-columns: 1fr;
+    }
+    .Trabajos-contenedor {
+        width: 80%;
+    }
+}
+
+@media (max-width: 430px) {
+    .Projects-li {
+        width: calc(100% / 4);
+        text-align: center;
+    }
+}
+
+@media (max-width: 380px) {
+    .Projects-ul {
+        gap: 2.5rem;
+    }
+    .Trabajos-contenedor {
+        width: 90%;
+    }
+}
+
+@media (max-width: 350px) {
+    .Projects-li {
+        font-size: .8125rem;
+    }
+}
+
+@media (max-width: 320px) {
+    .Projects-ul {
+        gap: 2.1875rem;
+    }
+}
+
+/* Tipografías responsive de los títulos. */
+@media (max-width: 650px) {
+    .Me-h2 , .Services-h2 , .Projects-h2 {
+        font-size: 1.875rem;
+    }
+}
+
+@media (max-width: 450px) {
+    .Me-h2 , .Services-h2 , .Projects-h2 {
+        font-size: 1.5625rem;
+    }
+}
+
+/* Empieza el footer. */
+.Footer {
+    text-align: center;
+    margin: 18.75rem 2.5rem 2.5rem;
+    padding: 1.875rem;
+    border-radius: 1.25rem;
+    box-shadow:  .3125rem .3125rem .9375rem #000000,
+                -0.0625rem -0.0625rem .3125rem #F8CC59;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.Footer-p {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.Footer-p::after {
+    content: "";
+    height: 1.0625rem;
+    width: .125rem;
+    border-radius: 3.125rem;
+    background-color: white;
+}
+
+.Footer-contacto {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5625rem;
+}
+
+.Footer-svg {
+    width: 1.25rem;
+}
+
+/* Modo responsive del footer. */
+@media (max-width: 500px) {
+    .Footer {
+        font-size: 80%;
+    }
+    .Footer-svg {
+        width: .9375rem;
+    }
+}
+
+@media (max-width: 350px) {
+    .Footer {
+        padding: 1.25rem;
+        flex-direction: column;
+        gap: .9375rem;
+    }
+    .Footer-p::after {
+        display: none;
+    }
+}
+
+/* Y ya por último, todas las clases que no se encuentran en el html, y que añado con js. */
+.Active {
+    transform: scale(1.2);
+}
+
+.Inactive {
+    transform: scale(0.7);
+}
+
+.isActive {
+    transform: scale(1.1);
+}
+
+.isInactive {
+    filter: grayscale(100%);
+    transform: scale(0.7);
+}
+
+.Aparece-header {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.Aparece-portada {
+    opacity: 1;
+}
+
+.Aparece-seccion {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.Header-hamburguesa-giratorio {
+    transform: rotate(90deg);
+}
+
+.Tablet-activado {
+    opacity: 1;
+    height: 25vh;
+    margin-left: 5%;
+    transform: rotate(360deg);
+    pointer-events: initial;
+}
+
+.Tablet-ul-activado {
+    margin-left: 0;
+}
+
+.Movil-activado {
+    opacity: 1;
+    height: 40vh;
+    margin-left: 5%;
+    transform: rotate(360deg);
+    pointer-events: initial;
+}
+
+.Movil-contenedor-activado {
+    margin-left: 0;
+}
+
+
+
+

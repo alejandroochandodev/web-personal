@@ -1,0 +1,90 @@
+
+<!-- Iniciamos el código de html que va a tener como objetivo estructurar la ficha de cada proyecto del portfolio. -->
+<!-- Metodología utilizada en las clases: suit-css. -->
+
+<!-- Declaración de documento html. -->
+<!DOCTYPE html>
+<!-- Seleccionamos español como idioma. -->
+<html lang="es">
+<head>
+    <!-- Codificación de caracteres. -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Enlace a la hoja de estilos css. -->
+    <link rel="stylesheet" href="css/proyecto.css">
+    <!-- Enlace al código de js. -->
+    <script src="js/proyecto.js" defer></script>
+    <!-- Favicon. -->
+    <link rel="icon" type="icon/webp" href="assets/images/favicondark.webp">
+    <!-- Título seo. -->
+    <title>Alejandro Ochando - FrontEnd Developer & Digital Marketer</title>
+    <!-- Tipógrafías de google fonts necesarias. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+</head>
+
+<!-- Se inicia el contenido legible por el navegador. -->
+<body>
+
+    <!-- Mensaje de volver hacia atrás. -->
+    <div class="Back-contenedor">
+
+        <a href="https://www.alejandroochando.com/#proyectos" class="Back-a">
+            <div class="Back">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="Back-svg" viewBox="0 0 16 16">
+                    <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
+                </svg>
+            </div>
+        </a>
+
+        <div class="Back-message">
+            <span class="Back-span">volver a mis proyectos</span>
+        </div>
+
+    </div>
+
+    <!-- Comienza el contenido de la ficha de proyecto. -->
+    <div class="Contenedor">
+
+        <h1 class="Contenedor-title">stockholm demo 50</h1>
+
+        <div class="Contenedor-content">
+            
+            <div class="Contenedor-scroll">
+
+                <div class="Contenedor-scrollbar">
+                    <img src="assets/images/capturadigital.webp" alt="captura del proyecto" class="Contenedor-img escritorio">
+                </div>
+    
+                <div class="Contenedor-scrollbar">
+                    <img src="assets/images/capturamovildigital.webp" alt="captura del proyecto" class="Contenedor-img movil">
+                </div>
+
+            </div>
+
+            <ul class="Contenedor-ul">
+                <li class="Contenedor-li"><h2 class="Contenedor-h2">tipo de proyecto:</h2><p class="Contenedor-p">diseño web</p></li>
+                <li class="Contenedor-li"><h2 class="Contenedor-h2">herramientas utilizadas:</h2><p class="Contenedor-p">visual studio code, html, css y javascript</p></li>
+                <li class="Contenedor-li"><h2 class="Contenedor-h2">objetivo:</h2><p class="Contenedor-p">practicar flex-box, responsive design, y la interacción con javascript</p></li>
+                <li class="Contenedor-li"><h2 class="Contenedor-h2">descripción:</h2><p class="Contenedor-p">copycat responsive de la web demo Stockhom 50</p></li>
+            </ul>
+
+        </div>
+
+    </div>
+
+    <!-- Botón de enlace a GitHub. -->
+    <a href="https://github.com/alejandroochandodev/stockholm-demo-50" class="Git-a" title="Ir a ver el archivo en GitHub" target="_blank" rel="noreferrer">
+        <div class="Git">
+            <p class="Git-p">ver archivo en GitHub</p>
+        </div>
+    </a>
+
+</body>
+</html>
+
+
+
+

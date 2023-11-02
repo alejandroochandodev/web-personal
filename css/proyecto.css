@@ -1,0 +1,401 @@
+
+/* Iniciamos el código de la hoja de estilos css que va a tener anexado cada proyecto del portfolio. */
+/* Esta hoja tiene como objetivo principalmente añadir los estilos y la apariencia requerida a la estructura maquetada en html. */
+
+/* Se inicia la hoja de estilos con un reset, es decir, con el reseteo de efectos y propiedades que vienen por defecto. */
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    vertical-align: baseline;
+    /* Esto es para ver las cajas en todo momento, por tanto estará comentado, y cuando sea necesario, se descomentará. */
+    /* outline: 2px red ridge; */
+}
+
+*::before , *::after {
+    display: block;
+}
+
+/* Se evitan posible confusiones con las imagenes. */
+img, picture, video, iframe, figure {
+    max-width: 100%;
+    width: 100%;
+    display: block;
+}
+
+/* Se resetean los enlaces. */
+a {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    font-size: inherit;
+}
+
+/* Los enalces de lospárrafos se quedan como están. */
+p a {
+    display: inline;
+}
+
+/* Se quitan los puntos de los <li>. */
+li {
+    list-style-type: none;
+}
+
+/* Se configuran anclas "a cámara lenta". */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Se desactivan los estilos por defecto de las principales etiquetas de texto. */
+h1, h2, h3, h4, h5, h6, p, span, a, strong, blockquote, i, b, u, em {
+    /* font-size: 1em;
+    font-weight: inherit;
+    font-style: inherit;
+    text-decoration: none;
+    color: inherit; */
+}
+
+/* Se evitan problemas con los pseudoelementos de quotes */
+blockquote:before, blockquote:after, q:before, q:after {
+    content: "";
+    content: none;
+}
+
+/* Se configura el texto que se selecciona. */
+::-moz-selection {
+    background-color: var(--negro);
+    color: var(--blanco);
+}
+::selection {
+    background-color: var(--negro);
+    color: var(--blanco);
+}
+
+/* Se nivelan problemas de tipografías y colocación de formularios. */
+form, input, textarea, select, button, label {
+    font-family: inherit;
+    font-size: inherit;
+    -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+            hyphens: auto;
+    background-color: transparent;
+    color: inherit;
+    display: block;
+}
+
+/* Se resetean las tablas. */
+table, tr, td {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* Se evitan problemas con los SVG */
+svg {
+    width: 100%;
+    display: block;
+    fill: currentColor;
+}
+
+/* Se personaliza la scrollbar. */
+/* El ancho: */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* El canal por el que pasa: */
+::-webkit-scrollbar-track {
+background: rgba(12, 16, 19, 0.99)6;
+box-shadow: inset 2px 2px 5px rgb(0, 0, 0);
+border-radius: 20px;
+}
+
+/* El scrollbar: */
+::-webkit-scrollbar-thumb {
+background: rgba(61, 121, 167, 0.99);
+border-radius: 20px;
+}
+
+/* Cuando pasas el cursor por encima del scrollbar: */
+::-webkit-scrollbar-thumb:hover {
+background: rgba(40, 79, 109, 0.99);
+}
+
+/* Especificaciones generales. */
+body {
+    min-height: 100vh;
+    max-width: 1430px;
+    margin: auto;
+    font-size: 100%;
+    color: white;
+    background-color: rgba(12, 16, 19, 0.99);
+    font-family: 'Poppins', sans-serif;
+}
+
+/* El botón de hacia atrás. */
+.Back-contenedor {
+    position: fixed;
+    top: 5%;
+    left: 3%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: .9375rem;
+    z-index: 1;
+}
+
+.Back {
+    width: 1.875rem;
+    height: 1.875rem;
+    border-radius: 50%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    box-shadow:  .3125rem .3125rem .9375rem #000000,
+                -0.3125rem -0.3125rem .9375rem #000000;
+    transition: all 0.8s ease;
+}
+
+.Back:hover {
+    transform: scale(1.2);
+}
+
+.Back:active {
+    transform: scale(0.8);
+}
+
+.Back-svg {
+    width: .9375rem;
+}
+
+/* Oculto para que se despliegue al pasar el cursor. */
+.Back-message {
+    padding: .3125rem .9375rem;
+    border-radius: 2rem;
+    box-shadow:  .3125rem .3125rem .9375rem #000000,
+                -0.3125rem -0.3125rem .9375rem #000000;
+    opacity: 0;
+    transform: translateX(-5%);
+    transition: all 0.5s ease;
+    pointer-events: none;
+    background-color: rgba(12, 16, 19, 0.99);
+}
+
+.over {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Empieza el contenido de la ficha de proyecto. */
+.Contenedor {
+    padding: 3.75rem;
+}
+
+.Contenedor-title {
+    text-align: center;
+    margin-top: 1.5625rem;
+}
+
+.Contenedor-content {
+    margin-top: 5rem;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 3.125rem;
+}
+
+.Contenedor-scroll {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 3.125rem;
+}
+
+.Contenedor-interiordesign {
+    margin-top: 5rem;
+    margin-left: 6.875rem;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 3.125rem;
+}
+
+.Contenedor-wetransfer {
+    margin-top: 5rem;
+    margin-left: 6.875rem;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 3.125rem;
+}
+
+/* Se añade una scrollbar al div contenedor de la imagen. */
+.Contenedor-scrollbar {
+    height: 18.75rem;
+    overflow: hidden;
+    overflow-y: scroll;
+    border-radius: .625rem;
+}
+
+.Contenedor-img {
+    border-radius: .625rem;
+}
+
+.escritorio {
+    width: 31.25rem;
+    
+}
+
+.tfm {
+    border: 1px solid white;
+}
+
+.movil {
+    width: 12.5rem;
+}
+
+.Contenedor-ul {
+    width: 50%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 1.875rem;
+    margin-top: -0.625rem;
+}
+
+.Contenedor-li {
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.Contenedor-p {
+    margin-top: .1875rem;
+}
+
+/* Botón de enlace a GitHub o a Figma. */
+.Git {
+    width: 15.625rem;
+    margin: .625rem auto 3.75rem;
+    padding: .625rem 1.25rem;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    border-radius: .9375rem;
+    box-shadow:  .3125rem .3125rem .9375rem #000000,
+                -0.3125rem -0.3125rem .9375rem #000000;
+}
+
+.Git:hover {
+    border-radius: .9375rem;
+    box-shadow:  .3125rem .3125rem .9375rem #000000,
+                -0.0625rem -0.0625rem .3125rem #F8CC59;
+}
+
+/* Modo responsive de la ficha de proyecto. */
+@media (max-width: 1150px) {
+    .Contenedor-content {
+        flex-flow: column nowrap;
+        gap: 6.25rem;
+    }
+    .Contenedor-interiordesign {
+        flex-flow: column nowrap;
+        gap: 6.25rem;
+        margin-left: 0;
+    }
+    .Contenedor-wetransfer {
+        flex-flow: column nowrap;
+        gap: 6.25rem;
+        margin-left: 0;
+    }
+    .Contenedor-ul {
+        display: grid;
+        grid-template-columns: 1fr;
+        width: 100%;
+        gap: 3.125rem;
+    }
+    .Git {
+        margin: 2.5rem auto 7.5rem;
+    }
+}
+
+@media (max-width: 920px) {
+    .Back {
+        box-shadow:  .3125rem .3125rem .9375rem #000000,
+                    -0.0625rem -0.0625rem .3125rem #F8CC59;
+    }
+    .Back-message {
+        display: none;
+    }
+    .Git {
+        box-shadow:  .3125rem .3125rem .9375rem #000000,
+                    -0.0625rem -0.0625rem .3125rem #F8CC59;
+    }
+}
+
+@media (max-width: 700px) {
+    body {
+        font-size: 90%;
+    }
+    .Back-contenedor {
+        top: 5%;
+        left: 5%;
+    }
+    .Contenedor-scroll {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media (max-width: 430px) {
+    body {
+        font-size: 80%;
+    }
+    .Pixar-scrollbar {
+        overflow-y: hidden;
+        height: max-content
+    }
+    .Git {
+        width: 13.125rem;
+    }
+}
+
+@media (max-width: 380px) {
+    body {
+        font-size: 70%;
+    }
+}
+
+@media (max-width: 350px) {
+    body {
+        font-size: 60%;
+    }
+}
+
+@media (max-width: 320px) {
+    body {
+        font-size: 55%;
+    }
+    .Pixar-scrollbar {
+        height: max-content;
+    }
+}
+
+@media (max-width: 300px) {
+    body {
+        font-size: 47%;
+    }
+}

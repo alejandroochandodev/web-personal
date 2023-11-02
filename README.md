@@ -6,6 +6,7 @@ Web personal con portfolio de proyectos.<br>
 
 <h2>Preview:</h2>
 
-![capturaportfolio](https://github.com/alejandroochandodev/web-personal/assets/129302754/3e542698-0598-442f-8564-3ef472cbe888)
+![capturaportfolio](https://github.com/alejandroochandodev/web-personal/assets/129302754/ee96bd64-4380-4d00-8daa-bcfea6deef84)
+
 
 

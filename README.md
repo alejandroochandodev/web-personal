@@ -1,5 +1,5 @@
 # Web Personal
-Web personal con portfolio de proyectos.<br>
+Web responsive con portfolio de proyectos.<br>
 
 <h2>Interesting Links:</h2>
 <a href="https://alejandroochandodev.github.io/web-personal/">Live Site</a><br>

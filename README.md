@@ -2,7 +2,7 @@
 Web personal responsive con portfolio de proyectos.<br>
 
 <h2>Interesting Links:</h2>
-<a href="https://alejandroochandodev.github.io/web-personal/" target="_blank">Live Site</a><br>
+<a href="https://alejandroochandodev.github.io/web-personal/">Live Site</a><br>
 
 <h2>Preview:</h2>
 

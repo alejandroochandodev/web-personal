@@ -604,9 +604,6 @@ body {
 }
 
 @media (max-width: 540px) {
-    .Portada-contenedor {
-   	margin-top: -7px;
-    }
     .izquierda {
         padding-left: 1.25rem;
     }

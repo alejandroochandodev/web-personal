@@ -985,7 +985,7 @@ body {
 .Trabajos {
     display: grid;
     grid-template-columns: repeat(3 , 1fr);
-    gap: 3.125rem;
+    gap: 5rem;
     padding-bottom: 30px;
 }
 

@@ -1203,12 +1203,12 @@ body {
 }
 
 .isActive {
-    transform: scale(1.1);
+    transform: scale(1.2);
 }
 
 .isInactive {
     filter: grayscale(100%);
-    transform: scale(0.7);
+    transform: scale(0.6);
 }
 
 .Aparece-header {

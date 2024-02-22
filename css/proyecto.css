@@ -157,7 +157,7 @@ body {
     justify-content: center;
     align-items: center;
     box-shadow:  .3125rem .3125rem .9375rem #000000,
-                -0.3125rem -0.3125rem .9375rem #000000;
+                -0.0625rem -0.0625rem .3125rem #F8CC59;
     transition: all 0.8s ease;
 }
 
@@ -178,7 +178,7 @@ body {
     padding: .3125rem .9375rem;
     border-radius: 2rem;
     box-shadow:  .3125rem .3125rem .9375rem #000000,
-                -0.3125rem -0.3125rem .9375rem #000000;
+                -0.0625rem -0.0625rem .3125rem #F8CC59;
     opacity: 0;
     transform: translateX(-5%);
     transition: all 0.5s ease;

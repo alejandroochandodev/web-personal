@@ -14,7 +14,7 @@ const uxBtn = document.querySelector(`.Ux-btn`)
 const otrosBtn = document.querySelector(`.Otros-btn`)
 
 const design = document.querySelectorAll(`.design`)
-const ux = document.querySelector(`.ux`)
+const ux = document.querySelectorAll(`.ux`)
 const otros = document.querySelectorAll(`.otros`)
 
 
@@ -56,7 +56,11 @@ designBtn.addEventListener (`click` , () => {
         otros[i].classList.add(`isInactive`)
 
     })
-    ux.classList.add(`isInactive`)
+    ux.forEach((eachUx , i) => {
+
+        ux[i].classList.add(`isInactive`)
+        
+    })
     designBtn.classList.add(`Active`)
     uxBtn.classList.add(`Inactive`)
     otrosBtn.classList.add(`Inactive`)
@@ -79,7 +83,11 @@ uxBtn.addEventListener (`click` , () => {
         otros[i].classList.add(`isInactive`)
 
     })
-    ux.classList.add(`isActive`)
+    ux.forEach((eachUx , i) => {
+
+        ux.classList.add(`isActive`)
+        
+    })
     uxBtn.classList.add(`Active`)
     designBtn.classList.add(`Inactive`)
     otrosBtn.classList.add(`Inactive`)
@@ -101,7 +109,11 @@ otrosBtn.addEventListener (`click` , () => {
         design[i].classList.add(`isInactive`)
 
     })
-    ux.classList.add(`isInactive`)
+    ux.forEach((eachUx , i) => {
+
+        ux.classList.add(`isInactive`)
+        
+    })
     otrosBtn.classList.add(`Active`)
     uxBtn.classList.add(`Inactive`)
     designBtn.classList.add(`Inactive`)

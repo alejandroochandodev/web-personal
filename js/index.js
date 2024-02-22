@@ -85,7 +85,7 @@ uxBtn.addEventListener (`click` , () => {
     })
     ux.forEach((eachUx , i) => {
 
-        ux.classList.add(`isActive`)
+        ux[i].classList.add(`isActive`)
         
     })
     uxBtn.classList.add(`Active`)
@@ -111,7 +111,7 @@ otrosBtn.addEventListener (`click` , () => {
     })
     ux.forEach((eachUx , i) => {
 
-        ux.classList.add(`isInactive`)
+        ux[i].classList.add(`isInactive`)
         
     })
     otrosBtn.classList.add(`Active`)

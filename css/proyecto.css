@@ -361,8 +361,8 @@ body {
 }
 
 @media (max-width: 600px) {
-    .height {
-        min-height: 300px;
+    .Contenedor-scrollbar {
+        overflow-y: hidden;
     }
 }
 

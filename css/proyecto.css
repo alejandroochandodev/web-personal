@@ -360,6 +360,12 @@ body {
     }
 }
 
+@media (max-width: 600px) {
+    .height {
+        min-height: 300px;
+    }
+}
+
 @media (max-width: 430px) {
     body {
         font-size: 80%;

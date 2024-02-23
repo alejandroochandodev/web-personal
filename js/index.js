@@ -101,7 +101,7 @@ otrosBtn.addEventListener (`click` , () => {
 
     otros.forEach((eachOtros , i) => {
 
-        otros[i].classList.add(`.isActive`)
+        otros[i].classList.add(`isActive`)
 
     })
     design.forEach((eachDesign , i) => {

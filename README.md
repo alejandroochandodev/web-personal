@@ -6,7 +6,8 @@ Web personal responsive con portfolio de proyectos.<br>
 
 <h2>Preview:</h2>
 
-![capturaportfolio](https://github.com/alejandroochandodev/web-personal/assets/129302754/11a18ad5-e4ee-4f37-b911-5711bfaf3163)
+![capturaportfolio](https://github.com/alejandroochandodev/web-personal/assets/129302754/10394116-0b9c-4fef-8950-fad575e73f4d)
+
 
 
 
